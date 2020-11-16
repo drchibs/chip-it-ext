@@ -5,10 +5,11 @@
     "manifest_version": 2,
 
     "permissions": [
-      "contextMenus",
-      "tabs",
-      "bookmarks",
-      "http://127.0.0.1:3000/api/v1/chips"
+        "contextMenus",
+        "tabs",
+        "bookmarks",
+        "notifications",
+        "http://127.0.0.1:3000/api/v1/chips"
     ],
     "icons": {
         "16": "chip-16.png",
@@ -23,7 +24,7 @@
     },
 
     "background": {
-      "scripts": ["background.js"],
-      "persistent": false
+        "scripts": ["background.js"],
+        "persistent": false
     }
 }
