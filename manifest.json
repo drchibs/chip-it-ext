@@ -7,6 +7,7 @@
     "permissions": [
       "contextMenus",
       "tabs",
+      "bookmarks",
       "http://127.0.0.1:3000/api/v1/chips"
     ],
     "icons": {

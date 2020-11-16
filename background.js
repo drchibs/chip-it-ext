@@ -64,3 +64,40 @@ chrome.runtime.onInstalled.addListener(function () {
 
 //listen for a click event on the browser page
 chrome.contextMenus.onClicked.addListener(contextMenuClickHandler);
+
+/**
+ *
+ * HERE WE POTENTIALLY TRY TO IMPORT THE USER'S ALREADY SAVED BOOKMARKS FROM BROWSER TO CHIP-IT!
+ *
+ * This is an attempt to extract the url of all user saved bookmarks
+ */
+
+const printBookmarks = (bookmarks) => {
+    bookmarks.forEach((bookmark) => {
+        const uid = Math.random(); //uid for now
+
+        if (bookmark.children) {
+            printBookmarks(bookmark.children);
+        } else {
+            //at this point we make an api call to save them for this user
+            try {
+                const data = sendChip(bookmark.url).then((res) => {
+                    //console.log(res);
+                    console.log(res.status);
+                    //send a notification to the browser based on status of the response = SUCCESS or FAIL
+                });
+            } catch (err) {
+                //send a notification to the browser based on error in request = ERROR
+            }
+            //console.log(bookmark.url);
+        }
+    });
+};
+
+const importBookmarks = () => {
+    chrome.bookmarks.getTree((bookmarks) => {
+        printBookmarks(bookmarks);
+    });
+};
+
+//importBookmarks();
