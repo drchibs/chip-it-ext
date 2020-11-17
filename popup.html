@@ -1,11 +1,115 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
     <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
+        <!-- RESPONSIVE THING -->
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, maximum-scale=1"
+        />
+
+        <!-- TITLE & DESCRIPTION -->
+        <title>Chip-it!</title>
+        <meta
+            name="description"
+            content="A Bookmark Manager with a Chrome extension and more class"
+        />
+        <meta
+            name="keywords"
+            content="chip-it, chrome, bookmark, manager, links"
+        />
+
+        <!-- FAVICON -->
+        <!-- <link
+            rel="icon"
+            href="../../pbs.twimg.com/profile_images/1028344178294419456/UM_bdwXQ_400x400.html"
+        /> -->
+
+        <!-- FONTS -->
+        <link
+            href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800,900"
+            rel="stylesheet"
+        />
+
+        <!-- STYLE -->
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/all.css" />
+
+        <!-- SCRIPTS AND STUFF -->
     </head>
+
     <body>
-        <h2>Hi, Dennis</h2>
+        <div class="padding-bottom-10">
+            <!-- EDIT ICON BELOW -->
+            <img class="" src="chip-it-banner.png" />
+        </div>
+        <h2 class="welcome">Hi, There!</h2>
+
+        <div class="section padding-bottom-50 center-align">
+            <!-- EDIT BUTTONS BELOW -->
+            <a href="http://localhost:4000/" target="_blank"
+                ><div class="button">
+                    <p class="white" title="View all my chips">My Dashboard</p>
+                </div></a
+            >
+
+            <a href="#" target="_blank"
+                ><div class="button">
+                    <p class="white" title="Add the current tab to my chips">Chip This Page</p>
+                </div></a
+            >
+
+            <a href="#" target="_blank"
+                ><div class="button">
+                    <p class="white" title="Add all saved Chrome bookmarks to Chip-it! PS: Don't do this more than once.">Import My Bookmarks</p>
+                </div></a
+            >
+
+            <!-- <a href="#" target="_blank"
+                ><div class="button"><p class="white">Link 6</p></div></a
+            > -->
+
+            <div class="clear"></div>
+            <div class="divider"></div>
+
+            <!-- EDIT NAME BELOW -->
+            <h1 class="padding-top-15">Chip-it!</h1>
+
+            <!-- EDIT DESCRIPTION BELOW -->
+            <h2 class="padding-bottom-10">
+                The Bookmark Manager with a Chrome extension and more class,
+                built by Dennis.
+                <a href="#" class="preul underline"
+                    >Connect with the developer</a
+                >.
+            </h2>
+
+            <!-- EDIT SOCIAL ICONS BELOW -->
+
+            <div class="section padding-bottom-10 center-align">
+                <p class="padding-bottom-10">
+                    <a
+                        href="https://www.instagram.com/el_chibs/"
+                        target="_blank"
+                        class="social-spacing"
+                        ><i class="fab fa-instagram fa-2x"></i
+                    ></a>
+                    <a
+                        href="https://github.com/drchibs"
+                        target="_blank"
+                        class="social-spacing"
+                        ><i class="fab fa-github fa-2x"></i
+                    ></a>
+                    <a
+                        href="https://twitter.com/el_chibs"
+                        target="_blank"
+                        class="social-spacing"
+                        ><i class="fab fa-twitter fa-2x"></i
+                    ></a>
+                </p>
+            </div>
+            <!-- EDIT COPYRIGHT TEXT BELOW -->
+            <small class="light-grey">&copy; Dennis R. Chibuike</small>
+        </div>
     </body>
+
+    <script src="popup.js"></script>
 </html>
