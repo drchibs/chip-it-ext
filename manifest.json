@@ -1,30 +1,33 @@
 {
     "name": "Chip-It!",
     "version": "1.0",
-    "description": "A Bookmark Manager with a Chrome extension and more class",
-    "manifest_version": 2,
+    "description": "A Better Browser Bookmarks manager with a dashboard and more class",
+    "manifest_version": 3,
 
     "permissions": [
         "contextMenus",
         "tabs",
         "bookmarks",
-        "notifications",
-        "http://127.0.0.1:3000/api/v1/chips"
+        "storage",
+        "notifications"
     ],
+    "host_permissions": [
+        "https://chip-it-api.fly.dev/v1/chips"
+    ],
+
     "icons": {
         "16": "chip-16.png",
         "48": "chip-48.png",
         "128": "chip-128.png"
     },
 
-    "browser_action": {
+    "action": {
         "default_icon": "chip-16.png",
         "default_title": "Chip this page!",
         "default_popup": "popup.html"
     },
 
     "background": {
-        "scripts": ["background.js"],
-        "persistent": false
+        "service_worker": "background.js"
     }
 }
