@@ -101,9 +101,9 @@ const printBookmarks = (bookmarks) => {
                 createChipNotification(err.message);
                 return;
             }
-            note = `All your bookmarks were saved successfully!`;
-            createChipNotification(note);
+
         }
+
     });
 };
 
@@ -111,5 +111,19 @@ const importBookmarks = () => {
     chrome.bookmarks.getTree((bookmarks) => {
         printBookmarks(bookmarks);
     });
+    let note = `All your bookmarks were saved successfully!`;
+    createChipNotification(note);
 };
 
+chrome.runtime.onMessage.addListener(
+    function(request, sender, sendResponse) {
+        console.log(sender.tab ?
+            "from a content script:" + sender.tab.url :
+            "from the chipit extension");
+        if (request.action === "import")
+            importBookmarks()
+
+        if (request.action === "chip")
+            createChipAction()
+    }
+);
