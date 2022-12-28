@@ -66,16 +66,17 @@ const contextMenuClickHandler = () => {
     createChipAction();
 };
 
-chrome.runtime.onInstalled.addListener(() => {
+chrome.runtime.onInstalled.addListener(async() => {
     chrome.contextMenus.create({
         id: Math.random().toString(),
         title: "Chip This Page!",
         contexts: ["page", "link"],
     });
     const note = `Hi, You're now using Chip It!`;
-    //const subNote = `Chip It! was built by D.R Chibs: https://github.com/drchibs , Twitter: https://twitter.com/el_chibs`;
     createChipNotification(note);
     //importBookmarks();
+    //await chrome.storage.sync.set({ isChip: true })
+
 });
 
 chrome.contextMenus.onClicked.addListener(contextMenuClickHandler);
@@ -127,3 +128,14 @@ chrome.runtime.onMessage.addListener(
             createChipAction()
     }
 );
+
+
+
+chrome.storage.sync.get("chip-it-token").then((data) => {
+    console.log(data.token)
+    if (data.token === undefined) {
+        chrome.action.setPopup({popup: 'popup_signin.html'});
+    } else {
+        chrome.action.setPopup({popup: 'popup.html'});
+    }
+});
